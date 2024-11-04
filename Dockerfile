@@ -3,6 +3,7 @@ FROM node:22.5-alpine3.19 AS production
 
 # Set the working directory to /app
 WORKDIR /app
+<<<<<<< HEAD
 
 # Copy both package.json and yarn.lock (instead of package-lock.json)
 COPY package.json yarn.lock ./
@@ -13,6 +14,11 @@ RUN yarn install --frozen-lockfile
 # Define build-time arguments for Vite environment variables
 
 # Copy the rest of the application code to the working directory
+=======
+COPY package*.json ./
+RUN npm ci
+
+>>>>>>> 62759dcdc5d5cabb2a25c5852266c3eaa91fded1
 COPY . ./
 
 # Run the build script
